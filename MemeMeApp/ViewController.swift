@@ -11,28 +11,57 @@ import UIKit
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var imagePickerView: UIImageView!
+    @IBOutlet weak var cameraButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+    }
 
     @IBAction func pickAnImage(_ sender: Any) {
-        let imagePickerController = UIImagePickerController()
-        imagePickerController.delegate = self
-        present(imagePickerController, animated: true, completion: nil)
+        if cameraButton.isEnabled {
+            pickAnImageFromCamera(sender)
+        } else {
+            pickAnImageFromAlbum(sender)
+        }
     }
     
  
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
-        let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
-        imagePickerView.image = image
-        picker.dismiss(animated: true, completion: nil)
+        let originalImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        imagePickerView.image = originalImage
+        dismiss()
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true, completion: nil)
+        dismiss()
     }
     
+    
+    func pickAnImageFromAlbum(_ sender: Any) {
+
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func pickAnImageFromCamera(_ sender: Any) {
+
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .camera
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func dismiss() {
+        dismiss(animated: true, completion: nil)
+    }
 }
 
