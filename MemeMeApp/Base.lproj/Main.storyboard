@@ -15,12 +15,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Qz-t5-N1p">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Qz-t5-N1p">
                                 <rect key="frame" x="87" y="384" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="duP-9K-weW">
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <items>
+                                    <barButtonItem title="Pick" id="10Q-je-mps"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="duP-9K-weW" firstAttribute="top" secondItem="3Qz-t5-N1p" secondAttribute="bottom" constant="306" id="94G-tg-1gq"/>
+                            <constraint firstItem="duP-9K-weW" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Yu3-oo-AMr"/>
+                            <constraint firstItem="duP-9K-weW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="eMm-ID-U7R"/>
+                            <constraint firstItem="duP-9K-weW" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="tTl-ZN-xZM"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
