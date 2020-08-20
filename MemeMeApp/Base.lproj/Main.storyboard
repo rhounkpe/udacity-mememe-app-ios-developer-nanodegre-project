@@ -29,24 +29,40 @@
                                     <barButtonItem title="Camera" id="kXJ-bv-c0u"/>
                                 </items>
                             </toolbar>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" borderStyle="roundedRect" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="VGy-WN-GrZ">
+                                <rect key="frame" x="0.0" y="44" width="414" height="58"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" borderStyle="roundedRect" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Rc8-ig-Aey">
+                                <rect key="frame" x="20" y="705" width="374" height="58"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VGy-WN-GrZ" secondAttribute="trailing" id="91p-Wx-1J8"/>
                             <constraint firstItem="duP-9K-weW" firstAttribute="top" secondItem="3Qz-t5-N1p" secondAttribute="bottom" constant="306" id="94G-tg-1gq"/>
+                            <constraint firstItem="VGy-WN-GrZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="HmM-d7-Gmd"/>
                             <constraint firstItem="duP-9K-weW" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Yu3-oo-AMr"/>
                             <constraint firstItem="duP-9K-weW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="eMm-ID-U7R"/>
                             <constraint firstItem="duP-9K-weW" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="tTl-ZN-xZM"/>
+                            <constraint firstItem="VGy-WN-GrZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="tqr-k8-wkf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="bottomText" destination="Rc8-ig-Aey" id="qRq-5W-2P7"/>
                         <outlet property="cameraButton" destination="kXJ-bv-c0u" id="ktT-cR-aN0"/>
                         <outlet property="imagePickerView" destination="3Qz-t5-N1p" id="mM9-es-Zsi"/>
+                        <outlet property="topText" destination="VGy-WN-GrZ" id="7Db-u9-tlk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="139"/>
+            <point key="canvasLocation" x="137.68115942028987" y="138.61607142857142"/>
         </scene>
     </scenes>
 </document>

@@ -8,20 +8,49 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
+    @IBOutlet weak var topText: UITextField!
+    @IBOutlet weak var bottomText: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        initializeTextFieldValue()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
     }
+    
+    func setupTextField(_ textField: UITextField, text: String) {
+        let memeTextAttributes: [NSAttributedString.Key: Any] = [
+            NSAttributedString.Key.strokeColor: UIColor.black,
+            NSAttributedString.Key.foregroundColor: UIColor.white,
+            NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+            NSAttributedString.Key.strokeWidth: -3 ]
+               
+        textField.defaultTextAttributes = memeTextAttributes
+        textField.textAlignment = .center
+        textField.text = text
+        textField.delegate = self
+    }
+    
+    func initializeTextFieldValue() {
+        setupTextField(topText, text: "TOP")
+        setupTextField(bottomText, text: "BOTTOM")
+    }
+    
+    /*
+    func setDefaultTextAttributes(_ textField: UITextField, attributes: [NSAttributedString]) {
+        textField.defaultTextAttributes = attributes
+        textField.textAlignment = .center
+        textField.text = text
+        textField.delegate = self
+    }
+     */
 
     @IBAction func pickAnImage(_ sender: Any) {
         if cameraButton.isEnabled {
